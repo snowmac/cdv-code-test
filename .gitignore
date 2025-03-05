@@ -1,0 +1,20 @@
+# Node modules  
+node_modules/  
+
+# TypeScript build output  
+dist/  
+
+# Logs  
+npm-debug.log*    
+logs/  
+*.log  
+
+# Env files (secrets)  
+.env  
+
+# Compiled TypeScript files  
+*.tsbuildinfo  
+
+# Editor settings & OS files  
+.vscode/  
+.DS_Store  
