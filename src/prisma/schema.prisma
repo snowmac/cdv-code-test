@@ -1,14 +1,36 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+datasource moviesDb {
+  provider = "sqlite"
+  url      = "file:./movies.db"
+}
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+datasource ratingsDb {
+  provider = "sqlite"
+  url      = "file:./ratings.db"
+}
 
 generator client {
   provider = "prisma-client-js"
+  output   = "./generated/movies"
+  datasource = "moviesDb"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+generator client_ratings {
+  provider   = "prisma-client-js"
+  output     = "./generated/ratings"
+  datasource = "ratingsDb"
+}
+
+model Movie {
+  id          Int     @id @default(autoincrement())
+  imdbId      String  @unique
+  title       String
+  genres      String
+  releaseDate String
+  budget      Int
+}
+
+model Rating {
+  id       Int     @id @default(autoincrement())
+  imdbId   String  @unique
+  rating   Float
 }
