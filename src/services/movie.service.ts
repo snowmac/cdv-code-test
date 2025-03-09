@@ -18,12 +18,6 @@ export const getMoviesByPage = async (
 ): Promise<any> => {
   console.log("into try the movies stuff");
   try {
-    dbInt.serialize(() => {
-      console.log("into the db serialize");
-      dbInt.run("SELECT * FROM movies", (err: any, rows: any) =>
-        console.log("select shit, ", err, rows)
-      );
-    });
     dbInt.run(
       `SELECT * FROM movies LIMIT ${limit} OFFSET ${offset}`,
       (err: any, rows: any) => {
