@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { getMoviesByPage } from "../services/movie.service";
+import MovieModel from "../models/movie.model";
 
 const router = Router();
 
@@ -9,7 +9,11 @@ router.get("/all", async (req: Request, res: Response) => {
     const limit = 50;
     const offset = (page - 1) * limit;
 
-    const movies = await getMoviesByPage(offset, limit);
+    const movies = await MovieModel.findAll({
+      offset,
+      limit,
+    });
+
     const formattedMovies = movies.map((movie: any) => {
       return {
         imdbId: movie.imdbId,
