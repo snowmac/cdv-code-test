@@ -10,15 +10,13 @@ router.get("/all", async (req: Request, res: Response) => {
     const offset = (page - 1) * limit;
 
     const movies = await getMoviesByPage(offset, limit);
-
-    console.log("got movies", movies);
     const formattedMovies = movies.map((movie: any) => {
       return {
         imdbId: movie.imdbId,
         title: movie.title,
         genres: movie.genres,
         releaseDate: movie.releaseDate,
-        budget: `$${movie.budget.toLocaleString()}`,
+        budget: movie.budget,
       };
     });
 
