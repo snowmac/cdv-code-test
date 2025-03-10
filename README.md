@@ -16,6 +16,15 @@ Steps:
 HTTP: GET
 URL: http://localhost:3000/movies/all
 Options:
-Query param of page number, eg: http://localhost:3000/movies/all?page=3
+
+- Query param of page number, eg: http://localhost:3000/movies/all?page=3
 
 Expected output: Returns a list of movies by page number.
+
+HTTP: GET
+URL: http://localhost:3000/movies/25
+OPTIONS:
+
+- URL Param of ID of a movie
+
+Expected output: Your movie with an average computed rating

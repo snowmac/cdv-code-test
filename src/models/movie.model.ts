@@ -1,5 +1,6 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
 import path from "path";
+import Rating from "./rating.model";
 
 const dbPath = path.resolve(__dirname, "../db/movies.db");
 
