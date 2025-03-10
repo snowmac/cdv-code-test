@@ -22,8 +22,6 @@ export const getById = async (id: number) => {
   const sum = ratings.reduce((acc, item) => acc + item.dataValues.rating, 0);
   let avg = sum / ratings?.length || 0;
 
-  console.log(movie);
-
   return {
     ...movie.dataValues,
     averageRating: avg,
